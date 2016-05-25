@@ -1,64 +1,564 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html lang="ko">
-<head>
-<meta charset="utf8" />
-<title></title>
-<link rel="stylesheet" type="text/css" href="./style.css" />
-</head>
-<body>
-	<s_t3>
+  <head>
+    <meta charset="utf8" />
 
-	<div id="container">
-		<div id="header">
-			<h1>01. 블로그 제목</h1>
-			<div class="menu">02. 블로그 메뉴</div>
-		</div>
-		<!-- header close -->
+    <meta http-equiv="Keywords" content="[##_meta_http_equiv_keywords_##]" /><!-- RSS 활성화 -->
+    <link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]" /><!-- RSS 활성화 -->
+    <link rel="alternate" type="application/rss+xml" title="[##_title_##] : comments" href="[##_comment_rss_url_##]" /><!-- RSS 활성화 -->
+    <link rel="alternate" type="application/rss+xml" title="[##_title_##] : trackbacks" href="[##_trackback_rss_url_##]" /><!-- RSS 활성화 -->
+    <link rel="alternate" type="application/rss+xml" title="[##_title_##] : comments + trackbacks" href="[##_response_rss_url_##]" /><!-- RSS 활성화 -->
 
-		<div id="sidebar"></div>
-		<!-- sidebar close -->
+    <link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_atom_url_##]" /><!-- ATOM 활성화 -->
+    <link rel="alternate" type="application/rss+xml" title="[##_title_##] : comments" href="[##_comment_atom_url_##]" /><!-- ATOM 활성화 -->
+    <link rel="alternate" type="application/rss+xml" title="[##_title_##] : trackbacks" href="[##_trackback_atom_url_##]" /><!-- ATOM 활성화 -->
+    <link rel="alternate" type="application/rss+xml" title="[##_title_##] : comments + trackbacks" href="[##_response_atom_url_##]" /><!-- ATOM 활성화 -->
 
-		<div id="content">
+    <title>[##_title_##] <s_page_title> :: [##_page_post_title_##]</s_page_title></title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" media="screen" type="text/css" href="./style.css" />
 
-			<div class="searchList">11. 검색 결과 리스트</div>
-			<div class="searchRplist">12. 검색 결과 댓글 리스트</div>
-			<div class="locallog">13. 위치 로그</div>
-			<div class="taglog">14. 태그 클라우드</div>
+    <link rel="shortcut icon" href="[##_blog_link_##]favicon.ico" /><!-- 파비콘 -->
+  </head>
+  <body>
+    <div id="container">
+        <div id="header">
+            <h1><a href="[##_blog_link_##]">[##_title_##]</a></h1>
+        </div> <!-- header close -->
 
-			<div class="guestbook">
-				15. 방명록
-				<div class="guestWrite">15-1. 방명록 글쓰기</div>
-				<div class="guestList">15-2. 방명록 리스트</div>
-			</div>
-			<!-- guestbook close -->
+        <div id="menu">
+          <div class="blogMenu">
+            <ul>
+                <li class="menuCover"><a href="[##_blog_link_##]cover">표지</a></li>
+                <li class="menuNotice"><a href="[##_blog_link_##]notice">공지사항</a></li>
+                <li class="menuLocal"><a href="[##_localog_link_##]">위치로그</a> </li>
+                <li class="menuTag" ><a href="[##_taglog_link_##]">태그</a></li>
+                <li class="menuKeyword"><a href="[##_blog_link_##]keylog">키워드</a> </li>
+                <li class="menuGuestbook" ><a href="[##_guestbook_link_##]">방명록</a></li>
+            </ul>
+          </div>
+          <div class="search">
+            <s_search>
+                <input type="text" name="[##_search_name_##]" value="[##_search_text_##]"/>
+                <button type="submit" class="btnSearch"><span>Search</span></button>
+            </s_search>
+          </div>
+        </div> <!-- menu close -->
 
-			<div class="entryNotice">16. 공지사항 글</div>
-			<div class="entryProtected">17. 보호 글</div>
+        <div id="body">
+            <div id="content">
+                <s_list>
+                  <div class="searchList">
+                    <h3>'[##_list_conform_##]'에 해당되는 글 [##_list_count_##]건</h3>
+                    <ol>
+                      <s_list_rep>
+                        <li>
+                          <span class="date">[##_list_rep_regdate_##]</span>
+                          <span class="name">[##_list_rep_name_##]</span>
+                          <a href="[##_list_rep_link_##]"> [##_list_rep_title_##]</a>
+                          <span class="cnt">[##_list_rep_rp_cnt_##]</span>
+                        </li>
+                      </s_list_rep>
+                    </ol>
+                  </div>
+                </s_list>
+                <s_rplist>
+                    <div id="searchRplist">
+                        <h3>'[##_rplist_conform_##]'에 해당되는 댓글 [##_rplist_count_##]건</h3>
+                        <ol>
+                            <s_rplist_rep>
+                                <li>
+                                    <span class="date">[##_rplist_rep_regdate_##]</span>
+                                    <span class="name">[##_rplist_rep_name_##]</span>
+                                    <p><a href="[##_rplist_rep_link_##]">[##_rplist_rep_body_##]</a></p>
+                                </li>
+                            </s_rplist_rep>
+                        </ol>
+                    </div>
+                </s_rplist>
+                <s_tblist>
+                    <div id="searchTblist">
+                        <h3>'[##_tblist_conform_##]'에 해당되는 댓글 [##_tblist_count_##]건</h3>
+                        <ol>
+                            <s_tblist_rep>
+                            <li>
+                                <span class="date">[##_tblist_rep_regdate_##]</span>
+                                <span class="title"><a href="[##_tblist_rep_link_##]">[##_tblist_rep_subject_##]</a></span>
+                                <p>[##_tblist_rep_body_##]</p>
+                            </li>
+                            </s_tblist_rep>
+                        </ol>
+                    </div>
+                </s_tblist>
+                <s_local>
+                    <div id="localog">
+                        <h3>위치로그</h3>
+                        <s_local_spot_rep>
+                            <div class="spot" style="margin-left: [##_local_spot_depth_##]px">
+                                [##_local_spot_##]
+                            </div>
+                        </s_local_spot_rep>
+                        <s_local_info_rep>
+                            <div class="info" style="margin-left: [##_local_info_depth_##]px">
+                                <a href="[##_local_info_link_##]">[##_local_info_title_##]</a>
+                            </div>
+                        </s_local_info_rep>
+                    </div>
+                </s_local>
+                <s_tag>
+                    <div id="taglog">
+                        <h3>태그</h3>
+                        <ul>
+                            <s_tag_rep>
+                            <li>
+                                <a href="[##_tag_link_##]" class="[##_tag_class_##]">[##_tag_name_##]</a>
+                            </li>
+                            </s_tag_rep>
+                        </ul>
+                    </div>
+                </s_tag>
 
-			<div class="entry">
-				18. 글
-				<div class="titleWrap">18-1. 글 제목 | 카테고리 | 작성일 | 글 관리</div>
-				<div class="article">18-2. 글</div>
-				<div class="tagTrail">18-3. 글 관련 태그</div>
-				<div class="actionTrail">18-4. 트랙백 | 댓글</div>
-				<div class="trackback">18-5. 트랙백</div>
-				<div class="comment">
-					18-6. 댓글
-					<div class="commentList">18-6-1. 댓글 리스트</div>
-					<div class="commentWrite">18-6-2. 댓글 쓰기</div>
-				</div>
-			</div>
-			<!-- entry close -->
 
-			<div class="entry">19. 페이지</div>
-		</div>
-		<!-- content close -->
+                <s_guest>
+                    <div class="guestbook">
+                        <h3>방명록</h3>
+                        <s_guest_input_form>
+                            <div class="writeForm">
+                                방명록 글쓰기
+                            </div>
+                        </s_guest_input_form>
+                        <s_guest_container>
+                            <div class="commentList">
+                                방명록 리스트
+                            </div>
+                        </s_guest_container>
+                    </div>
+                </s_guest>
+                <s_guest_input_form>
+                  <div class="writeForm">
+                      <s_guest_member>
+                          <s_guest_form>
+                          <dl class="name-line">
+                              <dt><label for="guestName">이름 (Your Name) </label></dt>
+                              <dd><input type="text" name="[##_guest_input_name_##]" value="[##__guest_name__##]" id="guestName" class="textField" /></dd>
+                          </dl>
+                          <dl class="password-line">
+                              <dt><label for="guestPassword">패스워드 (Your Password)</label></dt>
+                              <dd><input type="password" name="[##_guest_input_password_##]" value="" id="guestPassword" maxlength="8" value="" class="textField" /> </dd>
+                          </dl>
+                          <dl class="homepage-line">
+                              <dt><label for="guestHomepage">홈페이지 (Your Website)</label></dt>
+                              <dd><input type="text" name="[##_guest_input_homepage_##]" vlaue="[##__guest_homepage__##]" id="guestHomepage" class="textField" /></dd>
+                          </dl>
+                          </s_guest_form>
+                      </s_guest_member>
+                      <dl class="content-line">
+                          <dt><label for="textBody">내용 (Content)</label></dt>
+                          <dd><textarea id="textBody" name="[##_guest_textarea_body_##]" cols="50" rows="6"></textarea></dd>
+                      </dl>
+                      <dl class="btn-line">
+                          <dt>방명록 남기기 (Submit)</dt>
+                          <dd><button type="submit" onclick="[##_guest_onclick_submit_##]" class="btnComment"><span>Submit</span></button></dd>
+                      </dl>
+                  </div>
+                </s_guest_input_form>
+                <s_guest_input_form_openid_only>
+                    <p>
+                        오픈아이디로 로그인해야 글을 남기실 수 있습니다.
+                        <a href="[##_guest_openid_login_##]">오픈아이디 로그인하기
+                    </p>
+                </s_guest_input_form_openid_only>
+                <s_guest_container>
+                  <div class="commentList">
+                      <ol>
+                      <s_guest_rep>
+                          <li id='[##_guest_rep_id_##]'>
+                              <div class="[##_guest_rep_class_##]">
+                                  <span class="name">[##_guest_rep_name_##]</span>
+                                  <span class="date"> [##_guest_rep_date_##]</span>
+                                  <span class="control">
+                                      <button type="button" onclick="[##_guest_rep_onclick_reply_##]" class="reply"><span>Reply</span></button>
+                                      <button type="button" onclick="[##_guest_rep_onclick_delete_##]" class="modify"><span>Modify/Delete</span></button>
+                                  </span>
+                                  <p>[##_guest_rep_desc_##]</p>
+                              </div>
+                              <s_guest_reply_container>
+                              <ul>
+                                  <s_guest_reply_rep>
+                                  <li id='[##_guest_rep_id_##]'>
+                                      <div class="[##_guest_rep_class_##]">
+                                          <span class="name">[##_guest_rep_name_##]</span>
+                                          <span class="date"> [##_guest_rep_date_##]</span>
+                                          <span class="control">
+                                              <button type="button" onclick="[##_guest_rep_onclick_delete_##]" class="modify"><span>Modify/Delete</span></button>
+                                          </span>
+                                          <p>[##_guest_rep_desc_##]</p>
+                                      </div>
+                                  </li>
+                                  </s_guest_reply_rep>
+                                  </ul>
+                              </s_guest_reply_container>
+                          </li>
+                      </s_guest_rep>
+                      </ol>
+                  </div>
+                </s_guest_container>
 
+                <s_notice_rep>
+                    <div class="entryNotice">
+                        <div class="titleWrap">
+                            <h2><a href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a></h2>
+                            <span class="category"><a href="[##_blog_link_##]notice">공지사항</a></span> |
+                            <span class="date"> [##_notice_rep_date_##]</span>
+                        </div>
+                        <div class="article">
+                            [##_notice_rep_desc_##]
+                        </div>
+                    </div>
+                </s_notice_rep>
+                <s_article_protected>
+                    <div class="entryProtected">
+                        <h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
+                        <span class="category">보호글</span> |
+                        <span class="date">[##_article_rep_date_##]</span>
+                        <div class="article">
+                            <p> 보호되어 있는 글입니다. 내용을 보시려면 비밀번호를 입력하세요. </p>
+                        </div>
+                        <dl>
+                            <dt><label for="[##_article_password_##]">비밀번호 </label></dt>
+                            <dd><input id="[##_article_password_##]" class="textField" name="[##_article_password_##]" type="password" maxlength="16" onkeydown="if (event.keyCode == 13) [##_article_dissolve_##]" />
+                                <button type="button" class="btnSubmit" onclick="[##_article_dissolve_##]"><span>Submit</span></button> </dd>
+                        </dl>
+                    </div>
+                </s_article_protected>
+                <s_article_rep>
+                    <div class="entry"> 글
+                      <div class="titleWrap">
+                          <h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
+                          <span class="category"> <a href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a></span>
+                          <span class="date">[##_article_rep_date_##] </span>
+                          <span class="name">[##_article_rep_author_##]</span>
+                          <s_ad_div>
+                              <div class="admin">
+                                  <a href="[##_s_ad_m_link_##]">수정</a> :
+                                  <a href="#" onclick="[##_s_ad_m_onclick_##]">수정(창으로)</a> |
+                                  ([##_s_ad_s1_label_##])→<a href="#" onclick="[##_s_ad_s2_onclick_##]">[##_s_ad_s2_label_##]</a> |
+                                  <a href="#" onclick="[##_s_ad_t_onclick_##]">관련글(트랙백)</a> |
+                                  <a href="#" onclick="[##_s_ad_d_onclick_##]">삭제</a>
+                              </div>
+                          </s_ad_div>
+                      </div>
+                      <div class="article">
+                          [##_article_rep_desc_##]
+                          <div class="author">
+                              <span class="text">Posted by </span>[##_article_rep_author_##]
+                          </div>
+                      </div>
+                      <s_tag_label>
+                          <div class="tagTrail">
+                              <span>TAG </span> [##_tag_label_rep_##]
+                          </div>
+                      </s_tag_label>
+                      <div class="communication">
+                          <a href="#tb" id="[##_article_rep_tb_cnt_id_##]" onclick="[##_article_rep_tb_link_##]">
+                          <s_tb_count> 트랙백 <span class="cnt">[##_article_rep_tb_cnt_##]</span>개</s_tb_count></a>
+                          ,
+                          <a href="#rp" id="[##_article_rep_rp_cnt_id_##]" onclick="[##_article_rep_rp_link_##]">
+                          <s_rp_count> 댓글 <span class="cnt">[##_article_rep_rp_cnt_##]</span>개가 달렸습니다.</s_rp_count></a>
+                      </div>
+                      <s_tb>
+                          <div class="trackback">
+                              <h3>트랙백을 보내세요</h3>
+                              <div class="trackbackAdd">
+                                  <strong>트랙백 주소</strong> :: [##_tb_address_##]
+                              </div>
+                              <div class="trackbackList">
+                                  <s_tb_container>
+                                  <ol>
+                                      <s_tb_rep>
+                                      <li id="[##_tb_rep_id_##]">
+                                          <h4><a href="[##_tb_rep_url_##]" onclick="window.open(this.href); return false" rel="external nofollow">[##_tb_rep_title_##]</a></h4>
+                                          <span class="from">Tracked from <span class="name"> [##_tb_rep_site_##] </span> </span>
+                                          <span class="date">[##_tb_rep_date_##]</span>
+                                          <button type="button" onclick="[##_tb_rep_onclick_delete_##]; return false" class="delete"><span>delete</span></button>
+                                          <p>[##_tb_rep_desc_##]</p>
+                                      </li>
+                                      </s_tb_rep>
+                                  </ol>
+                                  </s_tb_container>
+                              </div>
+                          </div>
+                      </s_tb>
+                      <s_rp>
+                          <div class="comment">
+                              <h3>댓글을 달아 주세요 </h3>
+                              <div class="commentList">
+                                  <s_rp_container>
+                                  <ol>
+                                      <s_rp_rep>
+                                      <li id='[##_rp_rep_id_##]'>
+                                          <div class="[##_rp_rep_class_##]">
+                                              <span class="name">[##_rp_rep_name_##]</span>
+                                              <span class="date"><a href="[##_rp_rep_link_##]" class="address"> [##_rp_rep_date_##]</a></span>
+                                              <span class="control">
+                                                  <button type="button" onclick="[##_rp_rep_onclick_reply_##]" class="reply"><span>Reply</span></button>
+                                                  <button type="button" onclick="[##_rp_rep_onclick_delete_##]" class="modify"><span>Modify/Delete</span></button>
+                                              </span>
+                                              <p>[##_rp_rep_desc_##]</p>
+                                          </div>
+                                          <s_rp2_container>
+                                          <ul>
+                                              <s_rp2_rep>
+                                              <li id='[##_rp_rep_id_##]'>
+                                                  <div class="[##_rp_rep_class_##]">
+                                                      <span class="name">[##_rp_rep_name_##]</span>
+                                                      <span class="date"><a href="[##_rp_rep_link_##]" class="address"> [##_rp_rep_date_##]</a></span>
+                                                      <span class="control">
+                                                          <button type="button" onclick="[##_rp_rep_onclick_delete_##]" class="modify"><span>Modify/Delete</span></button>
+                                                      </span>
+                                                      <p>[##_rp_rep_desc_##]</p>
+                                                  </div>
+                                              </li>
+                                              </s_rp2_rep>
+                                          </ul>
+                                          </s_rp2_container>
+                                      </li>
+                                      </s_rp_rep>
+                                  </ol>
+                                  </s_rp_container>
+                              </div>
+                              <s_rp_input_form>
+                                <div class="writeForm">
+                                    <s_rp_member>
+                                        <s_rp_guest>
+                                        <dl class="name-line">
+                                            <dt><label for="[##_rp_input_name_##]_[##_article_rep_id_##]"> 이름 (Your Name) </label></dt>
+                                            <dd><input type="text" id="[##_rp_input_name_##]_[##_article_rep_id_##]" name="[##_rp_input_name_##]" value="[##_guest_name_##]" class="textField" /></dd>
+                                        </dl>
+                                        <dl class="password-line">
+                                            <dt><label for="[##_rp_input_password_##]_[##_article_rep_id_##]"> 패스워드 (Your Password) </label></dt>
+                                            <dd><input type="password" id="[##_rp_input_password_##]_[##_article_rep_id_##]" name="[##_rp_input_password_##]" value="" class="textField" /></dd>
+                                        </dl>
+                                        <dl class="homepage-line">
+                                            <dt><label for="[##_rp_input_homepage_##]_[##_article_rep_id_##]"> 홈페이지 (Your Website) </label></dt>
+                                            <dd><input type="text" id="[##_rp_input_homepage_##]_[##_article_rep_id_##]" name="[##_rp_input_homepage_##]" value="[##_guest_homepage_##]" class="textField" /></dd>
+                                        </dl>
+                                        </s_rp_guest>
+                                        <dl class="secret-line">
+                                            <dt>비밀글 (Serect)</dt>
+                                            <dd><input type="checkbox" class="checkbox" id="[##_rp_input_is_secret_##]_[##_article_rep_id_##]" name="[##_rp_input_is_secret_##]" value="1" /> <label for="[##_rp_input_is_secret_##]_[##_article_rep_id_##]"> 비밀글</label></dd>
+                                        </dl>
+                                    </s_rp_member>
+                                    <dl class="content-line">
+                                        <dt><label for="[##_rp_input_comment_##]_[##_article_rep_id_##]"> 내용 (Content) </label></dt>
+                                        <dd><textarea id="[##_rp_input_comment_##]_[##_article_rep_id_##]" name="[##_rp_input_comment_##]" rows="10" cols="50"></textarea></dd>
+                                    </dl>
+                                    <dl class="btn-line">
+                                        <dt>댓글 달기 (Submit)</dt>
+                                        <dd><button type="button" class="btnComment" onclick="[##_rp_onclick_submit_##]"><span>Submit</span></button></dd>
+                                    </dl>
+                                </div>
+                              </s_rp_input_form>
+                              <s_rp_input_form_openid_only>
+                                  <p>
+                                      오픈아이디로 로그인해야 글을 남기실 수 있습니다.
+                                      <a href="[##_guest_openid_login_##]">오픈아이디 로그인하기
+                                  </p>
+                              </s_rp_input_form_openid_only>
+                          </div>
+                      </s_rp>
+                    </div>
+                </s_article_rep>
+                <s_paging>
+                    <div class="paging">
+                        <a [##_prev_page_##] class="[##_no_more_prev_##]"><span>◀ Prev</span></a>
+                        <span class="numbox">
+                        <s_paging_rep>
+                            <a [##_paging_rep_link_##] class="num"> [##_paging_rep_link_num_##]</a>
+                        </s_paging_rep>
+                        </span>
+                        <a [##_next_page_##] class="[##_no_more_next_##]"><span> Next ▶</span></a>
+                    </div>
+                </s_paging>
+            </div><!-- content close -->
 
-		<div id="footer"></div>
-		<!-- footer close -->
+            <div id="sidebar">
+              <s_sidebar>
+                <s_sidebar_element>
+                    <!-- 블로그 이미지 모듈 -->
+                    <div class="blogImage">
+                    <div class="box"><img src="[##_image_##]" alt="블로그 이미지" /></div>
+                    </div>
+                </s_sidebar_element>
+                <s_sidebar_element>
+                    <!-- 블로그 설명 모듈 -->
+                    <div class="blogDesc">
+                        <p class="box">[##_desc_##]<span class="blogger"> - [##_blogger_##]</span></p>
+                    </div>
+                <s_sidebar_element>
+                <s_sidebar_element>
+                    <!-- 공지사항 모듈-->
+                    <s_rct_notice>
+                        <div class="notice">
+                            <h3>Notice</h3>
+                            <ul class="box">
+                                <s_rct_notice_rep>
+                                <li><a href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a> </li>
+                                </s_rct_notice_rep>
+                            </ul>
+                        </div>
+                    </s_rct_notice>
+                </s_sidebar_element>
+                <s_sidebar_element>
+                    <!-- 카테고리 모듈-->
+                    <div class="category">
+                        <h3>Category</h3>
+                        <div class="box">[##_category_list_##]</div>
+                    </div>
+                </s_sidebar_element>
+                <s_sidebar_element>
+                    <!-- 태그 클라우드 모듈-->
+                    <div class="tagbox">
+                        <h3>Tag</h3>
+                        <ul class="box">
+                            <s_random_tags>
+                                <li> <a href="[##_tag_link_##]" class="[##_tag_class_##]"> [##_tag_name_##]</a></li>
+                            </s_random_tags>
+                        </ul>
+                    </div>
+                </s_sidebar_element>
+                <s_sidebar_element>
+                    <!-- 최근에 올라온 글 모듈-->
+                    <div class="recentPost">
+                        <h3>Recent Post </h3>
+                        <ul class="box">
+                            <s_rctps_rep>
+                            <li><a href="[##_rctps_rep_link_##]"> [##_rctps_rep_title_##]</a>
+                                <span class="cnt">[##_rctps_rep_rp_cnt_##]</span></li>
+                            </s_rctps_rep>
+                        </ul>
+                    </div>
+                </s_sidebar_element>
+                <s_sidebar_element>
+                    <!-- 최근에 달린 댓글 모듈 -->
+                    <div class="recentComment">
+                        <h3>최근에 달린 댓글</h3>
+                        <ul class="box">
+                            <s_rctrp_rep>
+                            <li>
+                                <div class="info">
+                                    <span class="date">[##_rctrp_rep_time_##]</span>
+                                    <span class="name"> _ [##_rctrp_rep_name_##]</span>
+                                </div>
+                                <a href="[##_rctrp_rep_link_##]">[##_rctrp_rep_desc_##]</a>
+                            </li>
+                            </s_rctrp_rep>
+                        </ul>
+                    </div>
+                </s_sidebar_element>
+                <s_sidebar_element>
+                    <!-- 최근에 받은 트랙백 모듈-->
+                    <div class="recentTrackback">
+                        <h3>최근에 받은 트랙백</h3>
+                        <ul class="box">
+                            <s_rcttb_rep>
+                            <li>
+                                <div class="info">
+                                    <span class="date">[##_rcttb_rep_time_##]</span>
+                                    <span class="name"> _ [##_rcttb_rep_name_##]</span>
+                                </div>
+                                <a href="[##_rcttb_rep_link_##]">[##_rcttb_rep_desc_##]</a>
+                            </li>
+                            </s_rcttb_rep>
+                        </ul>
+                    </div>
+                </s_sidebar_element>
+                <s_sidebar_element>
+                    <!-- 글 보관함 모듈-->
+                    <div class="archive">
+                        <h3>글 보관함</h3>
+                        <ul class="box">
+                            <s_archive_rep>
+                            <li>
+                                <a href="[##_archive_rep_link_##]">[##_archive_rep_date_##] </a>
+                                <span class="cnt">([##_archive_rep_count_##])</span>
+                            </li>
+                            </s_archive_rep>
+                        </ul>
+                    </div>
+                </s_sidebar_element>
+                <s_sidebar_element>
+                    <!-- 링크 모듈-->
+                    <div class="link">
+                        <h3>Link</h3>
+                        <ul class="box">
+                            <s_link_rep>
+                            <li>
+                                <a href="[##_link_url_##]" onclick="window.open(this.href); return false"> [##_link_site_##].</a>
+                            </li>
+                            </s_link_rep>
+                        </ul>
+                    </div>
+                </s_sidebar_element>
+                <s_sidebar_element>
+                    <!-- 달력 모듈-->
+                    <div class="calender">
+                        <h3>Calendar</h3>
+                        <div class="box">[##_calendar_##]</div>
+                    </div>
+                </s_sidebar_element>
+                <s_sidebar_element>
+                    <!-- 카운터 모듈 -->
+                    <div class="counter">
+                        <h3>Counter</h3>
+                        <div class="box">
+                            <dl class="total-line">
+                                <dt>Total</dt>
+                                <dd>[##_count_total_##] </dd>
+                            </dl>
+                            <dl class="today-line">
+                                <dt>Today</dt>
+                                <dd>[##_count_today_##]</dd>
+                            </dl>
+                            <dl class="yesterday-line">
+                                <dt>Yesterday</dt>
+                                <dd>[##_count_yesterday_##]</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </s_sidebar_element>
+                <s_sidebar_element>
+                    <!-- 배너모듈 - Rss Feed-->
+                    <div class="bannerRSS">
+                        <a href="[##_rss_url_##]" onclick="window.open(this.href); return false"> <img src="./images/btn_rss.gif" alt="글 구독하기" /></a>
+                        <a href="[##_comment_rss_url_##]" onclick="window.open(this.href); return false"> <img src="./images/btn_comment_rss.gif" alt="댓글 구독하기" /></a>
+                        <a href="[##_trackback_rss_url_##]" onclick="window.open(this.href); return false"> <img src="./images/btn_trackback_rss.gif" alt="트랙백 구독하기" /></a>
+                        <a href="[##_response_rss_url_##]" onclick="window.open(this.href); return false"> <img src="./images/btn_response_rss.gif" alt="댓글 + 트랙백 구독하기" /></a>
+                    </div>
+                </s_sidebar_element>
+              </s_sidebar>
+            </div><!-- sidebar close -->
 
-	</div>
-	<!-- container close --> </s_t3>
-</body>
+        </div><!-- body close -->
+
+        <div id="footer">
+          <div class="footMenu">
+              <a href="[##_blog_link_##]">Home</a> :
+              <a href="[##_blog_link_##]cover">Cover</a> :
+              <a href="[##_blog_link_##]notice">Notice</a> :
+              <a href="[##_localog_link_##]">Local</a> :
+              <a href="[##_taglog_link_##]">Tag</a> :
+              <a href="[##_blog_link_##]keylog">Keyword</a> :
+              <a href="[##_guestbook_link_##]">Guestbook</a> :
+              <a href="[##_owner_url_##]">Admin</a> :
+              <a href="[##_owner_url_##]/entry/post">New Post</a>
+            </div>
+            <div class="copyright">
+                <a href="[##_blog_link_##]"> [##_blogger_##]</a>’s Blog is powered by
+                <a href="http://www.textcube.org" onclick="window.open(this.href); return false">[##_textcube_name_##] [##_textcube_version_##]</a> /
+                Designed by <a href="http://plyfly.net" onclick="window.open(this.href); return false">plyfly.net</a>
+            </div>
+        </div><!-- footer close -->
+    </div> <!-- container close -->
+  </body>
 </html>
